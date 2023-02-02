@@ -1,14 +1,11 @@
-import Link from "next/link";
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
+import NavbarMob from "@/\bcomponents/Navbar/NavbarMob";
+import NavbarWeb from "./Navbar/NavbarWeb";
+import useIsMobile from "@/hooks/useIsMobile";
 const NavBar = () => {
-  return (
-    <nav>
-      <div>로고 위치</div>
-      <Link href={"/"}>홈</Link>
-      <Link href={"/write"}>부동산 리뷰</Link>
-    </nav>
-  );
+  const isMobile = useIsMobile();
+  return <>{isMobile ? <NavbarMob /> : <NavbarWeb />}</>;
 };
 
 export default NavBar;
